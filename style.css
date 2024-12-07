@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --cell-size: 100px; 
+}
+
+html, body {
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, var(--cell-size));
+}
+
+.grid-cell{
+    border: solid black;
+    height: var(--cell-size);
+    width: var(--cell-size);
+}
