@@ -36,6 +36,10 @@ body{
     cursor: pointer;
 }
 
+.grid-cell:hover{
+    background-color: lightgrey;
+}
+
 .body-text {
     font-size: 2em;
     font-weight: bold;
