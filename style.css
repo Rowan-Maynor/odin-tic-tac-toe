@@ -3,7 +3,8 @@
 }
 
 :root{
-    --cell-size: 100px; 
+    --cell-size: 100px;
+    --grid-margin: 20px;
 }
 
 html, body {
@@ -21,6 +22,8 @@ body{
 .grid-container{
     display: grid;
     grid-template-columns: repeat(3, var(--cell-size));
+    margin-top: var(--grid-margin);
+    margin-bottom: var(--grid-margin);
 }
 
 .grid-cell{
