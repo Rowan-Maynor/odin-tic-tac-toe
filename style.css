@@ -28,3 +28,9 @@ body{
     height: var(--cell-size);
     width: var(--cell-size);
 }
+
+.body-text {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
