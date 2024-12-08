@@ -30,14 +30,15 @@ function changePlayerTurn() {
 }
 
 function checkForWinner() {
-    winConditions.forEach((condition) =>{
-        const cellA = gridCells[condition[0]].textContent;
-        const cellB = gridCells[condition[1]].textContent;
-        const cellC = gridCells[condition[2]].textContent;
+    for (let i = 0; i < winConditions.length; i++){
+        const cellA = gridCells[winConditions[i][0]].textContent;
+        const cellB = gridCells[winConditions[i][1]].textContent;
+        const cellC = gridCells[winConditions[i][2]].textContent;
 
         if (cellA == cellB == cellC) {
             changePlayerTurn();
             console.log(`Winner is ${currentPlayer}!`);
+            break;
         }
-    })
+    }
 }
