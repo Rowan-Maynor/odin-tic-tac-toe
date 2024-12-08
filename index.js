@@ -1,5 +1,7 @@
 let currentPlayer = "X";
 const gridCells = document.querySelectorAll(".grid-cell");
+const statusMessage = document.querySelector("#game-status");
+
 const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
