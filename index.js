@@ -16,7 +16,7 @@ const winConditions = [
 
 gridCells.forEach((cell) => {
     cell.addEventListener("click", ()=>{
-        if (statusMessage.textContent != `Player ${currentPlayer} Wins!` ||
+        if (statusMessage.textContent != `Player ${currentPlayer} Wins!` &&
             statusMessage.textContent != "Draw!"
         ) {
             cell.textContent = currentPlayer;
