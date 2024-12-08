@@ -1,7 +1,7 @@
 let currentPlayer = "X";
 const gridCells = document.querySelectorAll(".grid-cell");
 const statusMessage = document.querySelector("#game-status");
-let winMessage = `Player ${currentPlayer} Wins!`
+const resetBtn = document.querySelector("#reset-btn");
 
 const winConditions = [
     [0, 1, 2],
@@ -16,7 +16,7 @@ const winConditions = [
 
 gridCells.forEach((cell) => {
     cell.addEventListener("click", ()=>{
-        if (statusMessage.textContent != winMessage ||
+        if (statusMessage.textContent != `Player ${currentPlayer} Wins!` ||
             statusMessage.textContent != "Draw!"
         ) {
             cell.textContent = currentPlayer;
@@ -25,6 +25,8 @@ gridCells.forEach((cell) => {
         }
     }, {once:true});
 });
+
+resetBtn.addEventListener("click", resetGame);
 
 function changePlayerTurn() {
     currentPlayer == "X" ? (currentPlayer = "O", 
@@ -45,7 +47,7 @@ function checkForWinner() {
             continue;
         } else if (cellA == cellB && cellA == cellC) {
             changePlayerTurn();
-            statusMessage.textContent = winMessage;
+            statusMessage.textContent = `Player ${currentPlayer} Wins!`;
             return;
         }  
     }
@@ -59,4 +61,8 @@ function checkForWinner() {
     if (isDraw) {
         statusMessage.textContent = "Draw!"
     }
+}
+
+function resetGame() {
+    location.reload();
 }
