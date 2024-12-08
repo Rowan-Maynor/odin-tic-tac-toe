@@ -13,12 +13,11 @@ const winConditions = [
     [2, 4, 6] 
 ];
 
-console.log(winConditions);
-
 gridCells.forEach((cell) => {
     cell.addEventListener("click", ()=>{
         cell.textContent = currentPlayer;
         changePlayerTurn();
+        checkForWinner();
     }, {once:true});
 });
 
@@ -35,9 +34,11 @@ function checkForWinner() {
         const cellB = gridCells[winConditions[i][1]].textContent;
         const cellC = gridCells[winConditions[i][2]].textContent;
 
-        if (cellA == cellB == cellC) {
+        if (cellA == "" || cellB == "" || cellC == "") {
+            continue;
+        } else if (cellA == cellB && cellA == cellC) {
             changePlayerTurn();
-            console.log(`Winner is ${currentPlayer}!`);
+            statusMessage.textContent = `Player ${currentPlayer} Wins!`;
             break;
         }
     }
