@@ -16,7 +16,9 @@ const winConditions = [
 
 gridCells.forEach((cell) => {
     cell.addEventListener("click", ()=>{
-        if (statusMessage.textContent != winMessage) {
+        if (statusMessage.textContent != winMessage ||
+            statusMessage.textContent != "Draw!"
+        ) {
             cell.textContent = currentPlayer;
             changePlayerTurn();
             checkForWinner();
@@ -32,6 +34,8 @@ function changePlayerTurn() {
 }
 
 function checkForWinner() {
+    let isDraw = true;
+
     for (let i = 0; i < winConditions.length; i++){
         const cellA = gridCells[winConditions[i][0]].textContent;
         const cellB = gridCells[winConditions[i][1]].textContent;
@@ -42,7 +46,17 @@ function checkForWinner() {
         } else if (cellA == cellB && cellA == cellC) {
             changePlayerTurn();
             statusMessage.textContent = winMessage;
-            break;
+            return;
+        }  
+    }
+    
+    gridCells.forEach(cell => {
+        if(cell.textContent == "") {
+            isDraw = false;
         }
+    });
+
+    if (isDraw) {
+        statusMessage.textContent = "Draw!"
     }
 }
