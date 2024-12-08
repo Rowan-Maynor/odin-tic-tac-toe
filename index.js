@@ -23,7 +23,10 @@ gridCells.forEach((cell) => {
 });
 
 function changePlayerTurn() {
-    currentPlayer == "X" ? currentPlayer = "O" : currentPlayer = "X";
+    currentPlayer == "X" ? (currentPlayer = "O", 
+        statusMessage.textContent = `Player ${currentPlayer}'s Turn`) 
+    : (currentPlayer = "X",
+        statusMessage.textContent = `Player ${currentPlayer}'s Turn`);
 }
 
 function checkForWinner() {
