@@ -1,6 +1,7 @@
 let currentPlayer = "X";
 const gridCells = document.querySelectorAll(".grid-cell");
 const statusMessage = document.querySelector("#game-status");
+let winMessage = `Player ${currentPlayer} Wins!`
 
 const winConditions = [
     [0, 1, 2],
@@ -15,9 +16,11 @@ const winConditions = [
 
 gridCells.forEach((cell) => {
     cell.addEventListener("click", ()=>{
-        cell.textContent = currentPlayer;
-        changePlayerTurn();
-        checkForWinner();
+        if (statusMessage.textContent != winMessage) {
+            cell.textContent = currentPlayer;
+            changePlayerTurn();
+            checkForWinner();
+        }
     }, {once:true});
 });
 
@@ -38,7 +41,7 @@ function checkForWinner() {
             continue;
         } else if (cellA == cellB && cellA == cellC) {
             changePlayerTurn();
-            statusMessage.textContent = `Player ${currentPlayer} Wins!`;
+            statusMessage.textContent = winMessage;
             break;
         }
     }
